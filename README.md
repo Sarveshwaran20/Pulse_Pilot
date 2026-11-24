@@ -2,10 +2,11 @@
 
 > **Local-First Personal Biological Intelligence & MCP Action HUD**
 > Built for the Antigravity Multi-Track Challenge: Track 1 (MCP), Track 2 (Browser Agent), Track 3 (Local Vault).
+> **Author**: [SARVESHWARAN K (@Sarveshwaran20)](https://github.com/Sarveshwaran20)
 
 ```
  ┌─────────────────────────────────────────────────────────────┐
- │  PULSEPILOT // CIRCADIAN COCKPIT [LOCAL-FIRST ENCLAVE]     │
+ │  PULSEPILOT • CIRCADIAN COCKPIT [LOCAL-FIRST ENCLAVE]     │
  │  RHR: 74 BPM  •  FATIGUE: 84%  •  STATE: COGNITIVE_FATIGUE │
  └─────────────────────────────────────────────────────────────┘
 ```
