@@ -1,0 +1,60 @@
+{
+  "days": [
+    {
+      "date": "2026-11-18",
+      "total_hours": 4.2,
+      "productive_hours": 3.5,
+      "distracting_hours": 0.7,
+      "pickups": 42,
+      "late_night_minutes": 15
+    },
+    {
+      "date": "2026-11-19",
+      "total_hours": 5.1,
+      "productive_hours": 4.1,
+      "distracting_hours": 1.0,
+      "pickups": 55,
+      "late_night_minutes": 22
+    },
+    {
+      "date": "2026-11-20",
+      "total_hours": 5.8,
+      "productive_hours": 3.8,
+      "distracting_hours": 2.0,
+      "pickups": 71,
+      "late_night_minutes": 45
+    },
+    {
+      "date": "2026-11-21",
+      "total_hours": 4.6,
+      "productive_hours": 3.9,
+      "distracting_hours": 0.7,
+      "pickups": 48,
+      "late_night_minutes": 10
+    },
+    {
+      "date": "2026-11-22",
+      "total_hours": 6.4,
+      "productive_hours": 4.2,
+      "distracting_hours": 2.2,
+      "pickups": 89,
+      "late_night_minutes": 65
+    },
+    {
+      "date": "2026-11-23",
+      "total_hours": 7.1,
+      "productive_hours": 3.9,
+      "distracting_hours": 3.2,
+      "pickups": 112,
+      "late_night_minutes": 95
+    },
+    {
+      "date": "2026-11-24",
+      "total_hours": 6.5,
+      "productive_hours": 2.2,
+      "distracting_hours": 4.3,
+      "pickups": 128,
+      "late_night_minutes": 120
+    }
+  ]
+}

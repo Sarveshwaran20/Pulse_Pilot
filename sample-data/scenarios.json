@@ -1,0 +1,87 @@
+{
+  "scenarios": {
+    "COGNITIVE_FATIGUE": {
+      "name": "Heavy Cognitive Fatigue (Demo Trigger)",
+      "sleep_hours": 4.5,
+      "deep_sleep_ratio": 0.11,
+      "sleep_debt_hours": 4.8,
+      "resting_hr": 74,
+      "baseline_rhr": 59,
+      "hrv_rmssd": 28,
+      "screen_time_hours": 6.8,
+      "calendar_density_hours": 5.2,
+      "fatigue_score": 84,
+      "stress_score": 62,
+      "focus_score": 28,
+      "state": "COGNITIVE_FATIGUE",
+      "headline": "Cognitive Bandwidth Critically Depleted",
+      "recommendations": [
+        "Enable Browser Cognitive Load Mode to collapse text walls",
+        "Activate late-night purchase friction safeguard",
+        "Reschedule high-cognitive morning meetings past 14:00"
+      ]
+    },
+    "DEEP_FOCUS": {
+      "name": "Peak Flow & Deep Focus",
+      "sleep_hours": 8.2,
+      "deep_sleep_ratio": 0.28,
+      "sleep_debt_hours": 0.0,
+      "resting_hr": 57,
+      "baseline_rhr": 59,
+      "hrv_rmssd": 72,
+      "screen_time_hours": 3.4,
+      "calendar_density_hours": 1.5,
+      "fatigue_score": 14,
+      "stress_score": 18,
+      "focus_score": 92,
+      "state": "DEEP_FOCUS",
+      "headline": "Optimal Cognitive Capacity for Deep Architecture",
+      "recommendations": [
+        "Defend remaining 3-hour focus block",
+        "Silence non-critical notifications",
+        "Tackle highest-complexity tasks now"
+      ]
+    },
+    "HIGH_STRESS": {
+      "name": "Sympathetic Nervous Overdrive",
+      "sleep_hours": 5.8,
+      "deep_sleep_ratio": 0.14,
+      "sleep_debt_hours": 2.5,
+      "resting_hr": 84,
+      "baseline_rhr": 59,
+      "hrv_rmssd": 19,
+      "screen_time_hours": 7.5,
+      "calendar_density_hours": 6.5,
+      "fatigue_score": 65,
+      "stress_score": 88,
+      "focus_score": 22,
+      "state": "HIGH_STRESS",
+      "headline": "Autonomic Overdrive Detected (RHR +25 bpm)",
+      "recommendations": [
+        "Auto-declutter HUD to reduce visual stimulation",
+        "Postpone low-priority status syncs",
+        "Initiate 4-7-8 box breathing or 15m walk"
+      ]
+    },
+    "NEUTRAL": {
+      "name": "Steady Baseline Cadence",
+      "sleep_hours": 7.2,
+      "deep_sleep_ratio": 0.20,
+      "sleep_debt_hours": 0.8,
+      "resting_hr": 60,
+      "baseline_rhr": 59,
+      "hrv_rmssd": 54,
+      "screen_time_hours": 4.5,
+      "calendar_density_hours": 3.0,
+      "fatigue_score": 38,
+      "stress_score": 35,
+      "focus_score": 62,
+      "state": "NEUTRAL",
+      "headline": "Equilibrium Maintained Across Circadian Metrics",
+      "recommendations": [
+        "Standard operating posture active",
+        "Hydration & posture check advised"
+      ]
+    }
+  }
+}

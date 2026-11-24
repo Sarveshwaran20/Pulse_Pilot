@@ -1,0 +1,55 @@
+{
+  "events_today": [
+    {
+      "id": "cal-001",
+      "title": "Engineering Sprint Planning",
+      "start": "09:30",
+      "end": "11:00",
+      "duration_minutes": 90,
+      "meeting_type": "high_cognitive",
+      "protectable": true
+    },
+    {
+      "id": "cal-002",
+      "title": "Architecture Sync: Decoupled Services",
+      "start": "11:15",
+      "end": "12:15",
+      "duration_minutes": 60,
+      "meeting_type": "medium_cognitive",
+      "protectable": true
+    },
+    {
+      "id": "cal-003",
+      "title": "Quick Standup & Blockers",
+      "start": "13:00",
+      "end": "13:30",
+      "duration_minutes": 30,
+      "meeting_type": "low_cognitive",
+      "protectable": false
+    },
+    {
+      "id": "cal-004",
+      "title": "Stakeholder Q4 Product Roadmap Review",
+      "start": "14:00",
+      "end": "15:30",
+      "duration_minutes": 90,
+      "meeting_type": "high_cognitive",
+      "protectable": true
+    },
+    {
+      "id": "cal-005",
+      "title": "1:1 Career Sync with Lead",
+      "start": "16:00",
+      "end": "16:45",
+      "duration_minutes": 45,
+      "meeting_type": "medium_cognitive",
+      "protectable": true
+    }
+  ],
+  "metrics": {
+    "total_meeting_hours": 5.25,
+    "back_to_back_blocks": 3,
+    "longest_free_focus_block_minutes": 45,
+    "density_score": 82
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "pulsepilot-monorepo",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "python3 dev.py",
+    "test": "PYTHONPATH=. ./.venv/bin/pytest vault/tests/ mcp-server/tests/ -v",
+    "build:web": "cd web && npm run build",
+    "build:extension": "cd extension && npm run build",
+    "build": "npm run build:web && npm run build:extension"
+  }
+}

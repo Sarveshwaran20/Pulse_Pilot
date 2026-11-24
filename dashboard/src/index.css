@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --hud-bg: #07131B;
+  --hud-surface: #0C1C26;
+  --hud-surface-elevated: #112634;
+  --hud-border: rgba(46, 230, 168, 0.22);
+  --hud-accent: #2EE6A8;
+  --hud-accent-glow: rgba(46, 230, 168, 0.35);
+  --hud-secondary: #00B8D9;
+  --hud-text-primary: #E3FAF2;
+  --hud-text-secondary: #7CA19C;
+  --hud-text-muted: #3D5954;
+  --hud-status-badge: #0B2A22;
+}
+
+body {
+  background-color: var(--hud-bg);
+  color: var(--hud-text-primary);
+  transition: background-color 700ms cubic-bezier(0.22, 1, 0.36, 1),
+              color 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  min-height: 100vh;
+}
+
+/* Background grid and fine scanline */
+.cockpit-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+.cockpit-scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  );
+  background-size: 100% 4px;
+}
+
+/* Grain texture overlay */
+.cockpit-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* Hairline borders */
+.hud-card {
+  background-color: var(--hud-surface);
+  border: 1px solid var(--hud-border);
+  border-radius: 2px;
+  position: relative;
+  transition: border-color 500ms ease, background-color 500ms ease, box-shadow 500ms ease;
+}
+
+.hud-card:hover {
+  border-color: var(--hud-accent);
+  box-shadow: 0 0 15px -3px var(--hud-accent-glow);
+}
+
+/* Monospace ticker glow */
+.hud-glow {
+  text-shadow: 0 0 10px var(--hud-accent-glow);
+}
+
+/* Radial state transition wipe */
+.state-wipe {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at center, var(--hud-accent-glow) 0%, transparent 70%);
+  opacity: 0;
+  z-index: 40;
+}

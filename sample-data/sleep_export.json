@@ -1,0 +1,74 @@
+{
+  "records": [
+    {
+      "date": "2026-11-18",
+      "duration_hours": 7.8,
+      "deep_hours": 1.9,
+      "rem_hours": 2.1,
+      "light_hours": 3.8,
+      "efficiency_pct": 92,
+      "wake_count": 1,
+      "sleep_debt_hours": 0.2
+    },
+    {
+      "date": "2026-11-19",
+      "duration_hours": 7.5,
+      "deep_hours": 1.6,
+      "rem_hours": 1.9,
+      "light_hours": 4.0,
+      "efficiency_pct": 89,
+      "wake_count": 2,
+      "sleep_debt_hours": 0.5
+    },
+    {
+      "date": "2026-11-20",
+      "duration_hours": 6.8,
+      "deep_hours": 1.2,
+      "rem_hours": 1.5,
+      "light_hours": 4.1,
+      "efficiency_pct": 84,
+      "wake_count": 3,
+      "sleep_debt_hours": 1.2
+    },
+    {
+      "date": "2026-11-21",
+      "duration_hours": 7.2,
+      "deep_hours": 1.5,
+      "rem_hours": 1.8,
+      "light_hours": 3.9,
+      "efficiency_pct": 88,
+      "wake_count": 1,
+      "sleep_debt_hours": 0.9
+    },
+    {
+      "date": "2026-11-22",
+      "duration_hours": 6.1,
+      "deep_hours": 0.9,
+      "rem_hours": 1.2,
+      "light_hours": 4.0,
+      "efficiency_pct": 81,
+      "wake_count": 4,
+      "sleep_debt_hours": 2.1
+    },
+    {
+      "date": "2026-11-23",
+      "duration_hours": 5.4,
+      "deep_hours": 0.8,
+      "rem_hours": 1.0,
+      "light_hours": 3.6,
+      "efficiency_pct": 76,
+      "wake_count": 5,
+      "sleep_debt_hours": 3.2
+    },
+    {
+      "date": "2026-11-24",
+      "duration_hours": 4.5,
+      "deep_hours": 0.5,
+      "rem_hours": 0.7,
+      "light_hours": 3.3,
+      "efficiency_pct": 69,
+      "wake_count": 6,
+      "sleep_debt_hours": 4.8
+    }
+  ]
+}

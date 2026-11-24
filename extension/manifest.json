@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "PulsePilot: Biological HUD",
+  "version": "1.0.0",
+  "description": "Circadian biological intelligence agent: in-browser cognitive load mode & impulse filter.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "sidePanel"
+  ],
+  "host_permissions": [
+    "http://127.0.0.1:8000/*",
+    "http://localhost:8000/*",
+    "http://127.0.0.1:8002/*",
+    "http://localhost:8002/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "dist/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["dist/content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "side_panel": {
+    "default_path": "dist/sidepanel.html"
+  },
+  "action": {
+    "default_title": "PulsePilot Biological Cockpit"
+  }
+}

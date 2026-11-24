@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PulsePilot SCADA Side Panel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --obsidian: #080A0D;
+      --basalt: #0E1217;
+      --slate: #141A21;
+      --graphite: #1C232C;
+      --line: #2A323D;
+      --marble: #F1F3F6;
+      --silver: #A7B0BC;
+      --pewter: #6E7886;
+      --aegean: #4C8DF6;
+      --laurel: #3FB27F;
+      --coral: #EE7B5A;
+      --crimson: #D64550;
+
+      --hud-void: var(--obsidian);
+      --hud-surface-1: var(--slate);
+      --hud-surface-2: var(--graphite);
+      --hud-accent: var(--aegean);
+      --hud-ink-primary: var(--marble);
+      --hud-ink-secondary: var(--silver);
+      --hud-ink-muted: var(--pewter);
+    }
+    body {
+      margin: 0;
+      padding: 16px;
+      background-color: var(--hud-void);
+      color: var(--hud-ink-primary);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      user-select: none;
+      -webkit-font-smoothing: antialiased;
+    }
+    .hud-title {
+      font-family: 'Cinzel', serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--hud-ink-primary);
+      letter-spacing: 0.05em;
+    }
+    .hud-card {
+      position: relative;
+      background: linear-gradient(180deg, #141A21 0%, #10151C 100%);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 14px;
+      margin-bottom: 12px;
+      transition: border-color 250ms ease, box-shadow 250ms ease;
+    }
+    .hud-card:hover {
+      border-color: var(--hud-accent);
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.6), 0 0 12px rgba(76, 141, 246, 0.15);
+    }
+    /* Stone notch corner tick marks from SynapSYS */
+    .stone-notch {
+      position: relative;
+    }
+    .stone-notch::before,
+    .stone-notch::after {
+      content: '';
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-color: rgba(167, 176, 188, 0.35);
+      pointer-events: none;
+    }
+    .stone-notch::before {
+      top: -1px;
+      left: -1px;
+      border-top: 1px solid;
+      border-left: 1px solid;
+    }
+    .stone-notch::after {
+      bottom: -1px;
+      right: -1px;
+      border-bottom: 1px solid;
+      border-right: 1px solid;
+    }
+    .badge {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 2.5px 7px;
+      background: #101721;
+      color: var(--hud-accent);
+      border: 1px solid var(--hud-accent);
+      border-radius: 3px;
+    }
+    .btn-approve {
+      background: var(--hud-accent);
+      color: #050C15;
+      border: none;
+      padding: 8px 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 11px;
+      border-radius: 3px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: filter 200ms ease;
+    }
+    .btn-approve:hover {
+      filter: brightness(1.15);
+    }
+  </style>
+</head>
+<body>
+  <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); padding-bottom: 10px; margin-bottom: 14px;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <span style="width: 8px; height: 8px; border-radius: 50%; background: #38BDF8; box-shadow: 0 0 8px #38BDF8;"></span>
+      <div class="hud-title">PULSEPILOT</div>
+    </div>
+    <div id="state-badge" class="badge">INITIALIZING</div>
+  </div>
+
+  <div class="hud-card stone-notch" style="text-align: center;">
+    <canvas id="mini-orb" width="160" height="160" style="width: 76px; height: 76px; margin: 0 auto; display: block;"></canvas>
+    <div id="state-headline" style="font-size: 11px; margin-top: 8px; color: var(--hud-ink-secondary); line-height: 1.4;">Reading local biometric vault...</div>
+    <div style="display: flex; justify-content: space-around; margin-top: 12px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 10px;">
+      <div>
+        <div style="font-size: 9px; color: var(--hud-ink-muted);">FATIGUE</div>
+        <div id="stat-fatigue" style="font-size: 14px; font-weight: bold; color: var(--coral); font-variant-numeric: tabular-nums;">--</div>
+      </div>
+      <div>
+        <div style="font-size: 9px; color: var(--hud-ink-muted);">FOCUS</div>
+        <div id="stat-focus" style="font-size: 14px; font-weight: bold; color: var(--laurel); font-variant-numeric: tabular-nums;">--</div>
+      </div>
+      <div>
+        <div style="font-size: 9px; color: var(--hud-ink-muted);">RHR</div>
+        <div id="stat-rhr" style="font-size: 14px; font-weight: bold; color: var(--hud-ink-primary); font-variant-numeric: tabular-nums;">--</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="font-size: 10px; letter-spacing: 0.12em; color: var(--hud-ink-secondary); margin-bottom: 8px; font-weight: 600; text-transform: uppercase; display: flex; align-items: center; justify-content: space-between;">
+    <span>MCP GATED APPROVAL QUEUE</span>
+    <span style="color: var(--aegean);">BAY-02</span>
+  </div>
+  <div id="approval-queue">
+    <div style="color: var(--hud-ink-muted); text-align: center; padding: 20px;">Zero pending gated dispatches</div>
+  </div>
+
+  <script type="module" src="/src/sidepanel.ts"></script>
+</body>
+</html>

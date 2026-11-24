@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* SynapSYS Industrial SCADA Design Tokens (Midnight Marble) */
+  --obsidian-rgb: 8 10 13;
+  --basalt-rgb: 14 18 23;
+  --slate-rgb: 20 26 33;
+  --graphite-rgb: 28 35 44;
+  --line-rgb: 42 50 61;
+  --marble-rgb: 241 243 246;
+  --silver-rgb: 167 176 188;
+  --pewter-rgb: 110 120 134;
+  --aegean-rgb: 76 141 246;
+  --laurel-rgb: 63 178 127;
+  --coral-rgb: 238 123 90;
+  --crimson-rgb: 214 69 80;
+  --tyrian-rgb: 154 91 208;
+
+  --obsidian: #080A0D;
+  --basalt: #0E1217;
+  --slate: #141A21;
+  --graphite: #1C232C;
+  --line: #2A323D;
+  --marble: #F1F3F6;
+  --silver: #A7B0BC;
+  --pewter: #6E7886;
+  --aegean: #4C8DF6;
+  --laurel: #3FB27F;
+  --coral: #EE7B5A;
+  --crimson: #D64550;
+  --tyrian: #9A5BD0;
+
+  /* HUD Semantics */
+  --hud-void: var(--obsidian);
+  --hud-surface-1: var(--slate);
+  --hud-surface-2: var(--graphite);
+  --hud-surface-3: #16202B;
+  --hud-accent: var(--aegean);
+  --hud-accent-glow: rgba(76, 141, 246, 0.35);
+  --hud-ink-primary: var(--marble);
+  --hud-ink-secondary: var(--silver);
+  --hud-ink-muted: var(--pewter);
+  --cursor-x: 50vw;
+  --cursor-y: 50vh;
+}
+
+html {
+  background-color: var(--hud-void);
+  color: var(--hud-ink-primary);
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  scroll-behavior: auto; /* Controlled via Lenis */
+}
+
+body {
+  background-color: var(--hud-void);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color 850ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', 'Trajan Pro', Georgia, serif;
+}
+
+/* Tabular Numerals on all metrics */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Midnight Marble Cards (from SynapSYS) */
+.midnight-card {
+  position: relative;
+  background: linear-gradient(180deg, #141A21 0%, #10151C 100%);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.6);
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.midnight-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(76, 141, 246, 0.45);
+  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(76, 141, 246, 0.15);
+}
+
+/* Corner Notch Accents on Stone Tablet (from SynapSYS frame_154.jpg) */
+.stone-notch {
+  position: relative;
+}
+.stone-notch::before,
+.stone-notch::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-color: rgba(167, 176, 188, 0.4);
+  pointer-events: none;
+  transition: border-color 0.25s ease;
+  z-index: 20;
+}
+.stone-notch::before {
+  top: -1px;
+  left: -1px;
+  border-top: 1.5px solid;
+  border-left: 1.5px solid;
+}
+.stone-notch::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 1.5px solid;
+  border-right: 1.5px solid;
+}
+.stone-notch:hover::before,
+.stone-notch:hover::after {
+  border-color: rgba(76, 141, 246, 0.85);
+}
+
+/* Blueprint Grid with Cursor-Following Spotlight */
+.blueprint-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(
+    circle 450px at var(--cursor-x) var(--cursor-y),
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.15) 70%,
+    transparent 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    circle 450px at var(--cursor-x) var(--cursor-y),
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.15) 70%,
+    transparent 100%
+  );
+}
+
+/* Subtle Animated Monochromatic Film Grain */
+.film-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.028'/%3E%3C/svg%3E");
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--obsidian);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--silver);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
